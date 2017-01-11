@@ -1,19 +1,19 @@
-function countLetters(strToCount) {
-  strToCount = strToCount.replace(/\s+/g, '');
-  // var letters = strToCount.split('');
-  // return strToCount;
+function countLetters(str) {
+  var str = str.replace(/\s+/g, '');
+  var strArray = str.split('');
   var freq = {};
-  for (i = 0; i < strToCount.length; i++) {
-    var char = strToCount.charAt(i);
 
-    if (freq[char] === 1) {
-      freq[char]++;
+  for (var i = 0; i < strArray.length; i++) {
+    var char = strArray[i];
+
+    if (freq[char]) {
+      freq[char].push(i);
     }
     else {
-      freq[char] = 1;
+      freq[char] = [i];
     }
   }
   return freq;
 }
 
-console.log(countLetters("jlksd jfalks djfas"));
+console.log(countLetters("lighthouse in the house"));
